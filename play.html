@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <title>Document</title>
+</head>
+
+<style>
+  body {
+    min-height: 100vh;
+    display: flex;
+  }
+
+  .play {
+    margin: auto;
+    background-color: rgb(253, 54, 54);
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  i {
+    color: white;
+    margin: 50%;
+    transform: translate(-30%, -45%);
+  }
+
+  .play:hover  {
+    background-color: red;
+  }
+
+  .play:hover > .pulse {
+    animation: pulsing 1000ms ease-in-out infinite;
+  }
+
+  .pulse {
+    position: absolute;
+    top: calc(50% - 1rem);
+    left: calc(50% - 1rem);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: rgb(255, 93, 120);
+    z-index: -1;
+  }
+
+  @keyframes pulsing {
+    from {transform: scale(1);}
+    to {transform: scale(1.9);}
+  }
+</style>
+
+<body>
+  <div class="play">
+    <i class="fas fa-play"></i>
+    <div class="pulse"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #0d1113;
+  color: #fff;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  display: flex;
+}
+
+.game {
+  margin: auto;
+  position: relative;
+  width: 18rem;
+  cursor: pointer;
+  max-height: 440px;
+}
+
+.front {
+  width: 12.5rem;
+  margin: 0 auto;
+}
+
+.game-img {
+  border-radius: 1rem;
+  width: 100%;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: rgb(209, 209, 209);
+}
+
+.popular-streamers {
+  display: flex;
+  justify-content: center;
+}
+
+.streamer-img {
+  border-radius: 50%;
+  border: 3px solid #0d1113;
+  background-color: #0d1113;
+}
+
+.streamer-img:first-of-type {
+  transform: translateX(50%);
+  z-index: 1;
+}
+
+.streamer-img:nth-of-type(2) {
+  transform: translateX(25%);
+}
+
+.rank {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  right: 25%;
+  padding: 0.5rem 0.75rem 1rem 0.75rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+  font-weight: 900;
+  font-size: 1.2rem;
+  transition: transform 200ms linear;
+  z-index: 1;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+i {
+  margin-right: 0.5rem;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #1b2022;
+  z-index: -1;
+  transform: scale(0.6, 0.8);
+  border-radius: 1.25rem;
+  opacity: 0;
+}
+
+.back {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem;
+  transform: translateY(-45%);
+}
+
+.inner-streamer-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  transition: transform 150ms ease;
+}
+
+.play {
+  opacity: 0;
+  background-color: rgb(255, 56, 56);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+}
+
+.pulse {
+  position: absolute;
+  top: calc(50% - 1rem);
+  left: calc(50% - 1rem);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: rgb(255, 93, 120);
+  z-index: -1;
+}
+
+.play i {
+  font-size: 0.65rem;
+  color: white;
+  margin: 50%;
+  transform: translate(-40%, -45%);
+}
+
+.streamer-stats:hover .play {
+  opacity: 1;
+}
+
+.streamer-stats:hover .pulse {
+  animation: pulsing 1000ms ease-in-out infinite;
+}
+
+.streamer-stats:hover > .inner-streamer-img {
+  transform: translateY(-7px);
+}
+
+.play:hover {
+  background-color: red;
+}
+
+.inner-name {
+  margin-top: 0.6rem;
+}
+
+.more-stats {
+  margin: 1.5em 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat {
+  padding: 0 1.25rem;
+  text-align: center;
+}
+
+.stat:nth-of-type(1) {
+  border-right: 2px solid #555;
+}
+
+.muted {
+  color: #999;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  color: #fff;
+  background-color: #3a86f9;
+  border-radius: 1.2rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.75) 0px 4px 4px;
+  background-color: #1c74f8;
+}
+
+.streamers {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.streamer-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.streamer-id {
+  margin-top: 0.125rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.number {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+@keyframes gameName {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulsing {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.game-img,
+.background {
+  transition: transform 100ms linear;
+}
+
+.game:hover .background {
+  opacity: 1;
+}
+
+.game:hover .front > *:not(.game-img) {
+  display: none;
+}
+
+.game:hover .front > .stats {
+  opacity: 0;
+}
+
+.game:hover .front > .game-img {
+  transform: translateY(-30%) scale(0.75);
+}
+
+.game:hover .rank {
+  transform: translateX(125%);
+  opacity: 1;
+}
+
+.game:hover .back {
+  display: flex;
+}
+
+.game:hover .background {
+  transform: scale(1);
+}
+
+.game:hover .back {
+  animation: gameName 350ms linear;
+}
